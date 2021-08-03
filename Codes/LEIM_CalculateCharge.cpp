@@ -4,25 +4,25 @@ double *CalculateCharge(TString options,double begin_time,double end_time,bool v
   double *charge_values = new double[4];
   if (vis){
     if (options.Contains("F")){
-      if (options.Contains("S")) current_vs_time.open("../data/DarkNoisePaper/current_vs_time/CurrentVsTime_newFBKVUV-HD3-VIS_3h20m00s.txt");
-      else if (options.Contains("M")) current_vs_time.open("../data/DarkNoisePaper/current_vs_time/CurrentVsTime_newFBKVUV-HD3-VIS_4h45m43s.txt");
-      else if (options.Contains("L")) current_vs_time.open("../data/DarkNoisePaper/current_vs_time/CurrentVsTime_newFBKVUV-HD3-VIS_8h20m00s.txt");
+      if (options.Contains("S")) current_vs_time.open("../Data/current_vs_time/CurrentVsTime_newFBKVUV-HD3-VIS_3h20m00s.txt");
+      else if (options.Contains("M")) current_vs_time.open("../Data/current_vs_time/CurrentVsTime_newFBKVUV-HD3-VIS_4h45m43s.txt");
+      else if (options.Contains("L")) current_vs_time.open("../Data/current_vs_time/CurrentVsTime_newFBKVUV-HD3-VIS_8h20m00s.txt");
     }
     else if (options.Contains("H")){
-      if (options.Contains("S")) current_vs_time.open("../data/DarkNoisePaper/current_vs_time/CurrentVsTime_newHamamatsuVUV4-VIS_3h20m00s.txt");
-      else if (options.Contains("M")) current_vs_time.open("../data/DarkNoisePaper/current_vs_time/CurrentVsTime_newHamamatsuVUV4-VIS_4h45m43s.txt");
-      else if (options.Contains("L")) current_vs_time.open("../data/DarkNoisePaper/current_vs_time/CurrentVsTime_newHamamatsuVUV4-VIS_8h20m00s.txt");
+      if (options.Contains("S")) current_vs_time.open("../Data/current_vs_time/CurrentVsTime_newHamamatsuVUV4-VIS_3h20m00s.txt");
+      else if (options.Contains("M")) current_vs_time.open("../Data/current_vs_time/CurrentVsTime_newHamamatsuVUV4-VIS_4h45m43s.txt");
+      else if (options.Contains("L")) current_vs_time.open("../Data/current_vs_time/CurrentVsTime_newHamamatsuVUV4-VIS_8h20m00s.txt");
     }
   } else {
     if (options.Contains("F")){
-      if (options.Contains("S")) current_vs_time.open("../data/DarkNoisePaper/current_vs_time/CurrentVsTime_newFBKVUV-HD3-IR_3h20m00s.txt");
-      else if (options.Contains("M")) current_vs_time.open("../data/DarkNoisePaper/current_vs_time/CurrentVsTime_newFBKVUV-HD3-IR_4h45m43s.txt");
-      else if (options.Contains("L")) current_vs_time.open("../data/DarkNoisePaper/current_vs_time/CurrentVsTime_newFBKVUV-HD3-IR_8h20m00s.txt");
+      if (options.Contains("S")) current_vs_time.open("../Data/current_vs_time/CurrentVsTime_newFBKVUV-HD3-IR_3h20m00s.txt");
+      else if (options.Contains("M")) current_vs_time.open("../Data/current_vs_time/CurrentVsTime_newFBKVUV-HD3-IR_4h45m43s.txt");
+      else if (options.Contains("L")) current_vs_time.open("../Data/current_vs_time/CurrentVsTime_newFBKVUV-HD3-IR_8h20m00s.txt");
     }
     if (options.Contains("H")){
-      if (options.Contains("S")) current_vs_time.open("../data/DarkNoisePaper/current_vs_time/CurrentVsTime_newHamamatsuVUV4-IR_3h20m00s.txt");
-      else if (options.Contains("M")) current_vs_time.open("../data/DarkNoisePaper/current_vs_time/CurrentVsTime_newHamamatsuVUV4-IR_4h45m43s.txt");
-      else if (options.Contains("L")) current_vs_time.open("../data/DarkNoisePaper/current_vs_time/CurrentVsTime_newHamamatsuVUV4-IR_8h20m00s.txt");
+      if (options.Contains("S")) current_vs_time.open("../Data/current_vs_time/CurrentVsTime_newHamamatsuVUV4-IR_3h20m00s.txt");
+      else if (options.Contains("M")) current_vs_time.open("../Data/current_vs_time/CurrentVsTime_newHamamatsuVUV4-IR_4h45m43s.txt");
+      else if (options.Contains("L")) current_vs_time.open("../Data/current_vs_time/CurrentVsTime_newHamamatsuVUV4-IR_8h20m00s.txt");
     }
   }
   
@@ -91,7 +91,7 @@ double *CalculateCharge(TString options,double begin_time,double end_time,bool v
   charge_values[2] = average;
   charge_values[3] = average_err;
   
-  TString filename = "../rootfiles/";
+  TString filename = "../Rootfiles/";
   filename += options;
   filename += "_currentVtime";
   if (vis) filename += "_vis.root";

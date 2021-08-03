@@ -18,7 +18,7 @@ void ImageBuilder(TString options){
   gStyle->SetOptStat(0);
   TFile *fout = new TFile();
   if (options == "H"){
-    fout = TFile::Open("../rootfiles/HPKVUV4_SiPM_fullImage.root","RECREATE");
+    fout = TFile::Open("../Rootfiles/HPKVUV4_SiPM_fullImage.root","RECREATE");
     GetImageData(frame1_x_ptr,frame1_i_ptr,frame2_x_ptr,frame2_i_ptr,options);
     //frame1_i = RemoveCosmicRays(frame1_i,7,7,25);
     //frame2_i = RemoveCosmicRays(frame2_i,7,7,25);
@@ -49,13 +49,13 @@ void ImageBuilder(TString options){
     h->GetYaxis()->SetLabelSize(0.02);
     h->GetZaxis()->SetLabelSize(0.02);
     h->Draw("COLZ");
-    chpk->SaveAs("~/Documents/Pictures/Plots/leim/HPKVUV4_SiPM_fullImage.pdf");
+    chpk->SaveAs("../Images/HPKVUV4_SiPM_fullImage.pdf");
     fout->cd();
     h->Write();
     fout->Close();
   }
   else if (options=="F") {//fbk image
-    fout = TFile::Open("../rootfiles/FBKVUV-HD3_SiPM_fullImage.root","RECREATE");
+    fout = TFile::Open("../Rootfiles/FBKVUV-HD3_SiPM_fullImage.root","RECREATE");
     std::vector< std::vector<double> > left_frame,right_frame;
     int boundary;
     double norm;
@@ -143,7 +143,7 @@ void ImageBuilder(TString options){
     h->SetMaximum(2500);
     h->SetMinimum(0);
     h->Draw("COLZ");
-    cfbk->SaveAs("~/Documents/Pictures/Plots/leim/FBKVUV-HD3_SiPM_fullImage.pdf");
+    cfbk->SaveAs("../Images/FBKVUV-HD3_SiPM_fullImage.pdf");
     fout->cd();
     h->Write();
     fout->Close();
@@ -159,7 +159,7 @@ void ImageBuilder(TString options){
       title = "HPK VUV4 zoomed";
       if (options.Contains("Close")) title += "with slit closed";
       title += ";X [#mum];Y [#mum]";
-      filename = "../rootfiles/HPKVUV4_SiPM_zoomed_old";
+      filename = "../Rootfiles/HPKVUV4_SiPM_zoomed_old";
       if (options.Contains("Close")) filename += "_slitClosed";
       pdf_filename = filename;
       filename += ".root";
@@ -171,7 +171,7 @@ void ImageBuilder(TString options){
       title = "FBK VUV-HD3 Spectrum with with CRR";
       if (options.Contains("Close")) title += "with slit closed";
       title += ";X [#mum];Y [#mum]";
-      filename = "../rootfiles/FBKVUV-HD3_SiPM_spec_withCRR";
+      filename = "../Rootfiles/FBKVUV-HD3_SiPM_spec_withCRR";
       if (options.Contains("Close")) filename += "_slitClosed";
       pdf_filename = filename;
       filename += ".root";
@@ -195,7 +195,7 @@ void ImageBuilder(TString options){
     h->GetYaxis()->SetLabelSize(0.02);
     h->GetZaxis()->SetLabelSize(0.02);
     h->Draw("COLZ");
-    pdf_filename = "~/Documents/Pictures/Plots/leim/PDFs/"+pdf_filename;
+    pdf_filename = "../Images/"+pdf_filename;
     c->SaveAs(pdf_filename);
     TFile *fout = new TFile(filename,"RECREATE");
     fout->cd();

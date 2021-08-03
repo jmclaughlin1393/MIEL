@@ -58,8 +58,8 @@ std::vector<float> split(TString line,char delimiter=','){
 }
 double CorrectWavelength(int range, double lambda, int row){
   if (range != prv_range){
-    if (range == 800) correctionFile = TFile::Open("WavelengthCorrectionParameters_Infrared.root");
-    else if (range == 500 || range == 675) correctionFile = TFile::Open("WavelengthCorrectionParameters_Visible.root");
+    if (range == 800) correctionFile = TFile::Open("../Rootfiles/WavelengthCorrectionParameters_Infrared.root");
+    else if (range == 500 || range == 675) correctionFile = TFile::Open("../Rootfiles/WavelengthCorrectionParameters_Visible.root");
     Gcon = (TGraph*)correctionFile->Get("Gcon");
     Glin = (TGraph*)correctionFile->Get("Glin");
     Gquad = (TGraph*)correctionFile->Get("Gquad");
@@ -110,30 +110,30 @@ void ClearVectors(){
 
 void GetInformation(int range){
   cout << "Getting information" << endl;
-  gratingFile150.open("../data/csv_files/150gpmm_transmissionCurve.csv");
-  gratingFile300.open("../data/csv_files/300gpmm_transmissionCurve.csv");
-  objectiveFile20XIR.open("../data/csv_files/LCPLN20XIR_transmissionCurve.csv");
-  objectiveFile20X.open("../data/csv_files/LMPLFLN20X_transmissionCurve_v2.csv");
-  objectiveFile10X.open("../data/csv_files/LMPLFLN10X_transmissionCurve.csv");
-  cameraFile.open("../data/csv_files/PyLoN_BRexcelon_QEcurve.csv");
-  mirrorFile.open("../data/csv_files/Mirror_reflectionCurve.csv");
-  longpassFile.open("../data/csv_files/LongPassFilter_TransmissionCurve.csv");
-  dichroicFile.open("../data/csv_files/DichroicFilter_TransmissionCurve.csv");
-  //microscopeFile.open("../data/csv_files/OlympusMicroscope_LeftSidePort_TransmissionCurve.csv");
-  modFile.open("../data/csv_files/TransmissionCurve_Modifier_v2.csv");
-  //sourceFile.open("../data/csv_files/LSVN0583.csv");
-  sourceFile.open("../data/csv_files/LSVN0620.csv");
-  //sourceFile.open("../data/csv_files/LSVN0583_CrystalPenner.csv");
-  measurementFileIR.open("../data/DarkNoisePaper/calibration_data/IntensityCalSource_IRspectrum.csv");
-  //measurementFileIR.open("../data/DarkNoisePaper/calibration_data/LSVN0620_NIRspectrum_200ms_50kHz.csv");
-  baselineFileIR.open("../data/DarkNoisePaper/calibration_data/IntensityCalSource_IRbackground.csv");
-  //baselineFileIR.open("../data/DarkNoisePaper/calibration_data/LSVN0620_NIRbackground_200ms_50kHz.csv");
-  measurementFileVis.open("../data/DarkNoisePaper/calibration_data/IntensityCalSource_VISspectrum_500.csv");
-  //measurementFileVis.open("../data/DarkNoisePaper/calibration_data/LSVN0620_VISspectrum_200ms_50kHz.csv");
-  baselineFileVis.open("../data/DarkNoisePaper/calibration_data/IntensityCalSource_VISbackground.csv");
-  //baselineFileVis.open("../data/DarkNoisePaper/calibration_data/LSVN0620_VISbackground_200ms_50kHz.csv");
-  measurementFile675.open("../data/DarkNoisePaper/calibration_data/IntensityCalibrationSource_150lpmmGrating_675nmCentre.csv");
-  baselineFile675.open("../data/DarkNoisePaper/calibration_data/IntensityCalSource_VISbackground.csv");
+  gratingFile150.open("../Data/150gpmm_transmissionCurve.csv");
+  gratingFile300.open("../Data/300gpmm_transmissionCurve.csv");
+  objectiveFile20XIR.open("../Data/LCPLN20XIR_transmissionCurve.csv");
+  objectiveFile20X.open("../Data/LMPLFLN20X_transmissionCurve_v2.csv");
+  objectiveFile10X.open("../Data/LMPLFLN10X_transmissionCurve.csv");
+  cameraFile.open("../Data/PyLoN_BRexcelon_QEcurve.csv");
+  mirrorFile.open("../Data/Mirror_reflectionCurve.csv");
+  longpassFile.open("../Data/LongPassFilter_TransmissionCurve.csv");
+  dichroicFile.open("../Data/DichroicFilter_TransmissionCurve.csv");
+  //microscopeFile.open("../Data/OlympusMicroscope_LeftSidePort_TransmissionCurve.csv");
+  modFile.open("../Data/TransmissionCurve_Modifier_v2.csv");
+  //sourceFile.open("../Data/LSVN0583.csv");
+  sourceFile.open("../Data/LSVN0620.csv");
+  //sourceFile.open("../Data/LSVN0583_CrystalPenner.csv");
+  measurementFileIR.open("../Data/calibration_data/IntensityCalSource_IRspectrum.csv");
+  //measurementFileIR.open("../Data/calibration_data/LSVN0620_NIRspectrum_200ms_50kHz.csv");
+  baselineFileIR.open("../Data/calibration_data/IntensityCalSource_IRbackground.csv");
+  //baselineFileIR.open("../Data/calibration_data/LSVN0620_NIRbackground_200ms_50kHz.csv");
+  measurementFileVis.open("../Data/calibration_data/IntensityCalSource_VISspectrum_500.csv");
+  //measurementFileVis.open("../Data/calibration_data/LSVN0620_VISspectrum_200ms_50kHz.csv");
+  baselineFileVis.open("../Data/calibration_data/IntensityCalSource_VISbackground.csv");
+  //baselineFileVis.open("../Data/calibration_data/LSVN0620_VISbackground_200ms_50kHz.csv");
+  measurementFile675.open("../Data/calibration_data/IntensityCalibrationSource_150lpmmGrating_675nmCentre.csv");
+  baselineFile675.open("../Data/calibration_data/IntensityCalSource_VISbackground.csv");
   
   if (range == 800) {minWavelength = 500; maxWavelength = 1050;}
   else if (range == 675) {minWavelength = 400; maxWavelength = 700;}
@@ -478,8 +478,8 @@ void LEIMEfficiencyCurve(int range,int row,bool writeData=false){
   
   if (writeData){
     TFile *out = new TFile();
-    if (range == 500) out = TFile::Open("VisibleRangeEfficiencyCurve.root","UPDATE");
-    if (range == 800) out = TFile::Open("InfraredRangeEfficiencyCurve.root","UPDATE");  
+    if (range == 500) out = TFile::Open("../Rootfiles/VisibleRangeEfficiencyCurve.root","UPDATE");
+    if (range == 800) out = TFile::Open("../Rootfiles/InfraredRangeEfficiencyCurve.root","UPDATE");  
     out->cd();
     G_observedEff->SetName(Form("EfficiencyCurve_row%d",row));
     G_observedEff->Write();

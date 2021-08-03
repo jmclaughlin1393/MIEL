@@ -81,10 +81,10 @@ double *CorrectSpatialFluctuations(TString options){
   gStyle->SetNumberContours(99);
   gStyle->SetOptStat(0);
   
-  TFile *fHPK_full = new TFile("../rootfiles/HPKVUV4_SiPM_fullImage_CRR.root");
-  TFile *fHPK_zoom = new TFile("../rootfiles/HPKVUV4_SiPM_zoomed.root");
-  TFile *fFBK_full = new TFile("../rootfiles/FBKVUV-HD3_SiPM_fullImage.root");
-  TFile *fFBK_zoom = new TFile("../rootfiles/FBKVUV-HD3_SiPM_zoomed.root");
+  TFile *fHPK_full = new TFile("../Rootfiles/HPKVUV4_SiPM_fullImage_CRR.root");
+  TFile *fHPK_zoom = new TFile("../Rootfiles/HPKVUV4_SiPM_zoomed.root");
+  TFile *fFBK_full = new TFile("../Rootfiles/FBKVUV-HD3_SiPM_fullImage.root");
+  TFile *fFBK_zoom = new TFile("../Rootfiles/FBKVUV-HD3_SiPM_zoomed.root");
   TH2F *hHPK_full = (TH2F*)fHPK_full->Get("HPKVUV4_full");
   TH2F *hHPK_zoom = (TH2F*)fHPK_zoom->Get("HPKVUV4_zoomed");
   TH2F *hFBK_full = (TH2F*)fFBK_full->Get("FBKVUV-HD3_full");

@@ -5,13 +5,13 @@ void MakePlots_sameSiPM(TString sipm_type){
   gStyle->SetNumberContours(99);
   gStyle->SetOptStat(0);
   TString short_name = "spectrum_"+sipm_type+"S";
-  TString short_filename = "../rootfiles/Spectrum_"+sipm_type+"S.root";
+  TString short_filename = "../Rootfiles/Spectrum_"+sipm_type+"S.root";
   TFile *short_file = new TFile(short_filename);
   TString medium_name = "spectrum_"+sipm_type+"M";
-  TString medium_filename = "../rootfiles/Spectrum_"+sipm_type+"M.root";
+  TString medium_filename = "../Rootfiles/Spectrum_"+sipm_type+"M.root";
   TFile *medium_file = new TFile(medium_filename);
   TString long_name = "spectrum_"+sipm_type+"L";
-  TString long_filename = "../rootfiles/Spectrum_"+sipm_type+"L.root";
+  TString long_filename = "../Rootfiles/Spectrum_"+sipm_type+"L.root";
   TFile *long_file = new TFile(long_filename);
 
   //TH1F *h_short = (TH1F*)short_file->Get(short_name);
@@ -98,8 +98,8 @@ void MakePlots_sameSiPM(TString sipm_type){
     leg->AddEntry(h_long,"V_{ov} = 10.7 V");
   }
   leg->Draw("SAME");
-  if (sipm_type == "F") cPlotAll->SaveAs("~/Documents/Pictures/Plots/leim/FBKVUV-HD3_Spectra_corrected.pdf");
-  if (sipm_type == "H") cPlotAll->SaveAs("~/Documents/Pictures/Plots/leim/HamamatsuVUV4_Spectra_corrected.pdf");
+  if (sipm_type == "F") cPlotAll->SaveAs("../Images/FBKVUV-HD3_Spectra_corrected.pdf");
+  if (sipm_type == "H") cPlotAll->SaveAs("../Images/HamamatsuVUV4_Spectra_corrected.pdf");
 }
 
 void MakePlots_sameExposure(TString exposure){
@@ -151,7 +151,7 @@ void MakePlots_sameExposure(TString exposure){
   leg->AddEntry(h_HPK,"HPK VUV4");
   leg->AddEntry(h_FBK,"FBK VUV-HD3");
   leg->Draw("SAME");
-  if (exposure == "S") cPlotAll->SaveAs("~/Documents/Pictures/Plots/leim/SiPMSpectra_ShortExposure.pdf");
-  if (exposure == "M") cPlotAll->SaveAs("~/Documents/Pictures/Plots/leim/SiPMSpectra_MidExposure.pdf");
-  if (exposure == "L") cPlotAll->SaveAs("~/Documents/Pictures/Plots/leim/SiPMSpectra_LongExposure.pdf");
+  if (exposure == "S") cPlotAll->SaveAs("../Images/SiPMSpectra_ShortExposure.pdf");
+  if (exposure == "M") cPlotAll->SaveAs("../Images/SiPMSpectra_MidExposure.pdf");
+  if (exposure == "L") cPlotAll->SaveAs("../Images/SiPMSpectra_LongExposure.pdf");
 }

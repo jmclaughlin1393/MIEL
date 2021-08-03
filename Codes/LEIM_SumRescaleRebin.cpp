@@ -121,10 +121,10 @@ std::vector< std::vector<double> > SumRescaleRebin(std::vector< std::vector<doub
   cout << "      integral scale = " << integral_scale << " +/- " << integral_scale_err << endl; 
   cout << "      charge         = " << charge << " +/- " <<  charge_err << " (Coul.)" << endl;
   TFile *fcorr = new TFile();
-  if (vis_mode && option.Contains("F")) fcorr = TFile::Open("../rootfiles/CorrectionVsWavelength_VISmode_VUVHD3.root");
-  else if (!vis_mode && option.Contains("F")) fcorr = TFile::Open("../rootfiles/CorrectionVsWavelength_NIRmode_VUVHD3.root");
-  else if (vis_mode && option.Contains("H")) fcorr = TFile::Open("../rootfiles/CorrectionVsWavelength_VISmode_VUV4.root");
-  else if (!vis_mode && option.Contains("H")) fcorr = TFile::Open("../rootfiles/CorrectionVsWavelength_NIRmode_VUV4.root");
+  if (vis_mode && option.Contains("F")) fcorr = TFile::Open("../Rootfiles/CorrectionVsWavelength_VISmode_VUVHD3.root");
+  else if (!vis_mode && option.Contains("F")) fcorr = TFile::Open("../Rootfiles/CorrectionVsWavelength_NIRmode_VUVHD3.root");
+  else if (vis_mode && option.Contains("H")) fcorr = TFile::Open("../Rootfiles/CorrectionVsWavelength_VISmode_VUV4.root");
+  else if (!vis_mode && option.Contains("H")) fcorr = TFile::Open("../Rootfiles/CorrectionVsWavelength_NIRmode_VUV4.root");
   TGraph *correction = (TGraph*)fcorr->Get("G_correction");
   double conversion = (integral_scale*1.602e-19)/charge;
   double conversion_err = TMath::Power((integral_scale_err*1.602e-19)/charge,2.0);

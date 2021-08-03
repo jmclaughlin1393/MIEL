@@ -1,12 +1,12 @@
 #include "TGraph.h"
 #include "TFile.h"
 #include <vector>
-TFile *fcorrections_ir = new TFile("../rootfiles/InfraredRangeEfficiencyCurve.root");
-TFile *fcorrections_vis = new TFile("../rootfiles/VisibleRangeEfficiencyCurve.root");
-TFile *ferrors = new TFile("../rootfiles/EfficiencyCurve_ErrorBands.root");
-TFile *fToyMC = new TFile("../rootfiles/MIELEfficiencyError_ToyMC.root");
-TFile *fToyMC_systematic = new TFile("../rootfiles/MIELEfficiencyError_ToyMC_Systematic.root");
-TFile *fToyMC_lt1percent = new TFile("../rootfiles/MIELEfficiencyError_ToyMC_lt1percent.root");
+TFile *fcorrections_ir = new TFile("../Rootfiles/InfraredRangeEfficiencyCurve.root");
+TFile *fcorrections_vis = new TFile("../Rootfiles/VisibleRangeEfficiencyCurve.root");
+TFile *ferrors = new TFile("../Rootfiles/EfficiencyCurve_ErrorBands.root");
+TFile *fToyMC = new TFile("../Rootfiles/MIELEfficiencyError_ToyMC.root");
+TFile *fToyMC_systematic = new TFile("../Rootfiles/MIELEfficiencyError_ToyMC_Systematic.root");
+TFile *fToyMC_lt1percent = new TFile("../Rootfiles/MIELEfficiencyError_ToyMC_lt1percent.root");
 std::vector<double> CorrectEfficiency(std::vector<double> wavelength, std::vector<double> intensity, int row, bool range_vis){
   TGraph *G_ir = (TGraph*)fcorrections_ir->Get(Form("EfficiencyCurve_row%d",row));
   TGraph *G_vis = (TGraph*)fcorrections_vis->Get(Form("EfficiencyCurve_row%d",row));

@@ -20,8 +20,8 @@ std::vector<float> split(TString line,char delimiter=','){
 
 std::vector<std::vector<double> > ReadData(TString option){
   ifstream data;
-  if (option=="H") data.open("../data/DarkNoisePaper/newHPKVUV4_IV_curve.txt");
-  else if (option=="F") data.open("../data/DarkNoisePaper/newFBKVUV-HD3_IV_curve.txt");
+  if (option=="H") data.open("../Data/newHPKVUV4_IV_curve.txt");
+  else if (option=="F") data.open("../Data/newFBKVUV-HD3_IV_curve.txt");
   else {cout << "Invalid choice of SiPM data." << endl; exit(1);}
   if (!data.is_open()){cout << "Failed to open data file" << endl; exit(1);} 
   double V,dV,I,dI;
@@ -47,8 +47,8 @@ void DrawIVCurve(TString option){
   gROOT->ForceStyle();
   gStyle->SetOptStat(0);
   TFile *fout = new TFile();
-  if (option == "H") fout = TFile::Open("../rootfiles/HPKVUV4_IVCurve.root","RECREATE");
-  if (option == "F") fout = TFile::Open("../rootfiles/FBKVUV-HD3_IVCurve.root","RECREATE");
+  if (option == "H") fout = TFile::Open("../Rootfiles/HPKVUV4_IVCurve.root","RECREATE");
+  if (option == "F") fout = TFile::Open("../Rootfiles/FBKVUV-HD3_IVCurve.root","RECREATE");
   std::vector<std::vector<double> > data = ReadData(option);
   TGraphErrors *gData = new TGraphErrors(data.size());
   double V,dV,I,dI;
@@ -94,8 +94,8 @@ void DrawIVCurve(TString option){
   c->SetGridy();
   c->cd();
   gData->Draw("APL");
-  if (option == "H") c->SaveAs("~/Documents/Pictures/Plots/leim/HPKVUV4_IVCurve.pdf");
-  if (option == "F") c->SaveAs("~/Documents/Pictures/Plots/leim/FBKVUV-HD3_IVCurve.pdf");
+  if (option == "H") c->SaveAs("../Images/HPKVUV4_IVCurve.pdf");
+  if (option == "F") c->SaveAs("../Images/FBKVUV-HD3_IVCurve.pdf");
   fout->cd();
   gData->Write();
   fout->Close();
