@@ -139,7 +139,7 @@ void SpectrumBuilder(TString options){
 
   logfile << "Subtracting baseline" << endl;
   double baseline_noise_ir,baseline_noise_vis;
-  for (int i = 0; i < 400; i++){
+  for (int i = 0; i < 399; i++){
     baseline_noise_ir = baseline_noise_vis = TMath::Power(3.26,2.0); //measured this independently using wtfIsGoingOn.cpp and is consistent with data sheet
     intensity_vis[i] = SubtractBaseline(intensity_vis[i],baseline_vis[i]);
     intensity_ir[i] = SubtractBaseline(intensity_ir[i],baseline_ir[i]);
@@ -150,7 +150,7 @@ void SpectrumBuilder(TString options){
   }
 
   logfile << "Correcting for optical efficiencies" << endl;
-  for (int i = 0; i < 400; i++){
+  for (int i = 0; i < 399; i++){
     intensity_vis[i] = CorrectEfficiency(wavelength_vis[i], intensity_vis[i], i, true);
     intensity_ir[i] = CorrectEfficiency(wavelength_ir[i], intensity_ir[i], i, false);
 
